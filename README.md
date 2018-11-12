@@ -2,6 +2,10 @@
 
 This is a HTTP driven "driver" for serial connected (USB or UART) dedicated board called **BluePill** (firmware can be found [here](https://github.com/tBlabs/BluePill.Firmware)).
 
+## Another drivers for BluePill?
+
+Look for `BluePill.Host` and `BluePill.Client.Lib` (or just `BluePill.Client.{type}`) in my repo.
+
 ## How to run it?
 
 Plug IO board, set it's port in `app.config.json` under `usb` section and run this program (`npm start`).  
@@ -12,14 +16,14 @@ Now you can play with board with simply calling REST API described below.
 | Operation                      | URL                             | Example request             | Example response   |
 | ------------------------------ | ------------------------------- | --------------------------- | ------------------ |
 | Get IO value by IO name        | /`ioName`                       | /door-sensor                | 1                  |
-| Set IO value by IO name        | /`ioName`/`value`               | /main-light/123             | *HTTP 202*         |jjjjj
+| Set IO value by IO name        | /`ioName`/`value`               | /main-light/123             | *HTTP 202*         |
 | Get IO value by IO addr        | /get/`addr`                     | /get/4                      | 12                 |
 | Set IO value by IO addr        | /set/`addr`/`value`             | /set/2/1                    | *HTTP 202*         |
 | IO rename                      | /`ioName`/rename/`newName`      | /adc1/rename/light-sensor   | *HTTP 200*         |
 | Add or update IO event         | /`ioName`/`eventName`/`event`   | /adc1/onChange/{pwmUpdate}  | *HTTP 200*         |
 | Delete IO event                | /`ioName`/`eventName`/          | /adc1/onChange/             | *HTTP 200*         |
-| Board info                     | /boardInfo                      | /boardinfo                  | (...) *HTTP 200*   |
-| IO config                      | /ioConfig                       | /ioconfig                   | (...) *HTTP 200*   |
+| Board info                     | /boardInfo                      | /boardinfo                  | {json} *HTTP 200*  |
+| IO config                      | /ioConfig                       | /ioconfig                   | (json} *HTTP 200*  |
 | Add or update config variable  | /config/`varName`/`value`       | host/foo/bar                | foo=bar            |
 | Read config variable           | /config/`varName`               | /config/foo                 | bar                |
 | Remove config variable         | /config/`varName`/              | /config/foo/                | *HTTP 200*         |

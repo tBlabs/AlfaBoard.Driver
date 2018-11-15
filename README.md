@@ -24,7 +24,7 @@ Now you can play with board with simply calling REST API described below.
 | Delete IO event                | /`ioName`/`eventName`/          | /adc1/onChange/             | *HTTP 200*         |
 | Board info                     | /boardInfo                      | /boardinfo                  | {json} *HTTP 200*  |
 | IO config                      | /ioConfig                       | /ioconfig                   | (json} *HTTP 200*  |
-| Add or update config variable  | /config/`varName`/`value`       | host/foo/bar                | foo=bar            |
+| Add or update config variable  | /config/`varName`/`value`       | /config/foo/bar             | foo=bar            |
 | Read config variable           | /config/`varName`               | /config/foo                 | bar                |
 | Remove config variable         | /config/`varName`/              | /config/foo/                | *HTTP 200*         |
 
